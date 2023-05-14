@@ -1,17 +1,17 @@
 FROM openjdk:8-jre-alpine
 
 # define activemq version and workdir
-ENV ACTIVEMQ_VERSION 5.15.11
+ENV ACTIVEMQ_VERSION 5.18.0
 ENV ACTIVEMQ_WORKDIR /app
 
 # create the work dir
 RUN mkdir -p $ACTIVEMQ_WORKDIR
 
 # copy activemq
-COPY activemq/apache-activemq-5.15.11-bin.tar.gz .
+COPY activemq/apache-activemq-5.18.0-bin.tar.gz .
 
 # download active mq and extract
-RUN tar -xzf apache-activemq-5.15.11-bin.tar.gz -C $ACTIVEMQ_WORKDIR
+RUN tar -xzf apache-activemq-5.18.0-bin.tar.gz -C $ACTIVEMQ_WORKDIR
 
 # create link
 RUN ln -s $ACTIVEMQ_WORKDIR/apache-activemq-$ACTIVEMQ_VERSION $ACTIVEMQ_WORKDIR/activemq
